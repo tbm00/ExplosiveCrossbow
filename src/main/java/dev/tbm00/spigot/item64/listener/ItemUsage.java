@@ -52,7 +52,7 @@ public class ItemUsage implements Listener {
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
         if (item == null || player == null) return;
-        
+
         ItemEntry entry = usageHandler.getItemEntryByItem(item);
         if (entry == null || !player.hasPermission(entry.getUsePerm()))
             return;

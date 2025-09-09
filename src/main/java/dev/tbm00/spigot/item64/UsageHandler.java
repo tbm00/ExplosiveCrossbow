@@ -613,6 +613,15 @@ public class UsageHandler {
 
     // doesn't require checks as hasItem should always get called before
     public boolean removeItem(Player player, Material material) {
+        ItemStack offhand = player.getInventory().getItemInOffHand();
+        if (offhand != null && offhand.getType() == material) {
+            if (getItemEntryByItem(offhand) != null) {
+                if (offhand.getAmount() <= 1) player.getInventory().setItemInOffHand(null);
+                else offhand.setAmount(offhand.getAmount() - 1);
+                return true;
+            }
+        }
+
         for (ItemStack itemStack : player.getInventory().getContents()) {
             if (itemStack != null && itemStack.getType() == material) {
                 if (itemStack.getAmount() <= 1) player.getInventory().remove(itemStack);
@@ -620,11 +629,21 @@ public class UsageHandler {
                 return true;
             }
         }
+
         return false;
     }
 
     // doesn't require checks as passed itemStack should exist
     public boolean removeItem(Player player, ItemStack itemStack) {
+        ItemStack offhand = player.getInventory().getItemInOffHand();
+        if (offhand != null && offhand.isSimilar(itemStack)) {
+            if (getItemEntryByItem(offhand) != null) {
+                if (offhand.getAmount() <= 1) player.getInventory().setItemInOffHand(null);
+                else offhand.setAmount(offhand.getAmount() - 1);
+                return true;
+            }
+        }
+
         for (ItemStack item : player.getInventory().getContents()) {
             if (item != null && item.isSimilar(itemStack))  {
                 if (getItemEntryByItem(item) != null) {
@@ -634,6 +653,7 @@ public class UsageHandler {
                 }
             }
         }
+
         return false;
     }
 
