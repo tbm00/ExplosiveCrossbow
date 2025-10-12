@@ -87,7 +87,8 @@ public class UsageHandler {
         Material.ENDER_CHEST,
         Material.VAULT,
         Material.TRIAL_SPAWNER,
-        Material.SPAWNER
+        Material.SPAWNER,
+        Material.GLASS
     );
 
     public UsageHandler(Item64 item64, ConfigHandler configHandler, Economy ecoHook, GDHook gdHook, DCHook dcHook, WorldGuard wgHook) {

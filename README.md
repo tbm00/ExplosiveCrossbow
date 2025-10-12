@@ -286,7 +286,7 @@ Applicable on *all types* but only applicable if breakEvent.rewardBlockPlacing.e
 ## Default Config
 
 ```
-# Item64 v0.2.28-beta by @tbm00
+# Item64 v0.2.29-beta by @tbm00
 # https://github.com/tbm00/Item64
 
 enabled: true
