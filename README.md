@@ -48,7 +48,7 @@ Simply use the default config, which is survival-friendly, or customize it to yo
 ## Dependencies
 
 - **Java 17+**: REQUIRED
-- **Spigot 1.18.1+**: UNTESTED ON OLDER VERSIONS
+- **Spigot 1.21.1+**: UNTESTED ON OLDER VERSIONS
 - **Vault**: OPTIONAL
 - **WorldGuard**: OPTIONAL
 - **GriefDefender**: OPTIONAL
@@ -286,7 +286,7 @@ Applicable on *all types* but only applicable if breakEvent.rewardBlockPlacing.e
 ## Default Config
 
 ```
-# Item64 v0.2.27-beta by @tbm00
+# Item64 v0.2.28-beta by @tbm00
 # https://github.com/tbm00/Item64
 
 enabled: true

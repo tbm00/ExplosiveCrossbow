@@ -81,7 +81,13 @@ public class UsageHandler {
         Material.BARRIER,
         Material.STRUCTURE_BLOCK,
         Material.END_PORTAL_FRAME,
-        Material.LIGHT
+        Material.LIGHT,
+        Material.CHEST,
+        Material.TRAPPED_CHEST,
+        Material.ENDER_CHEST,
+        Material.VAULT,
+        Material.TRIAL_SPAWNER,
+        Material.SPAWNER
     );
 
     public UsageHandler(Item64 item64, ConfigHandler configHandler, Economy ecoHook, GDHook gdHook, DCHook dcHook, WorldGuard wgHook) {
@@ -731,9 +737,9 @@ public class UsageHandler {
             case 0:
                 return Particle.FLAME;
             case 1:
-                return Particle.SMOKE_NORMAL;
+                return Particle.SMOKE;
             case 2:
-                return Particle.SMOKE_LARGE;
+                return Particle.LARGE_SMOKE;
             case 3:
                 return Particle.FLAME;
             default:
