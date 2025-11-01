@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockGrowEvent;
 
 import dev.tbm00.spigot.item64.Item64;
@@ -24,7 +25,7 @@ public class PreventGrowth implements Listener {
         else enabled = false;
     }
     
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockGrowth(BlockGrowEvent event) {
         if (!enabled) return;
         Material mat = event.getNewState().getType();

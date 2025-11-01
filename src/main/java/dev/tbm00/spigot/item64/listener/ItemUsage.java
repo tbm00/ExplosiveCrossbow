@@ -7,6 +7,7 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.ThrownPotion;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -31,7 +32,7 @@ public class ItemUsage implements Listener {
     }
 
     // USE LISTENER: CONSUMABLE
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onItemConsume(PlayerItemConsumeEvent event) {
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
@@ -47,7 +48,7 @@ public class ItemUsage implements Listener {
     }
 
     // USE LISTENER: USABLE, FLAME_PARTICLE, LIGHTNING_PEARL, RANDOM_POTION
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onItemUse(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
@@ -78,7 +79,7 @@ public class ItemUsage implements Listener {
     }
 
     // USE LISTENER: EXPLOSIVE_ARROW
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBowShoot(EntityShootBowEvent event) {
         if (!(event.getEntity() instanceof Player)) return;
 
@@ -98,7 +99,7 @@ public class ItemUsage implements Listener {
     }
 
     // USE LISTENER: AREA BREAK, SMELT BREAK
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockBreak(BlockBreakEvent event) {
         
         // check if block is an active item entry
@@ -124,7 +125,7 @@ public class ItemUsage implements Listener {
     }
 
     // LANDING LISTENER: EXPLOSIVE_ARROW, LIGHTNING_PEARL
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onProjectileHit(ProjectileHitEvent event) {
         Projectile projectile = event.getEntity();
         if (projectile instanceof Arrow) {
@@ -150,7 +151,7 @@ public class ItemUsage implements Listener {
     }
 
     // LANDING LISTENER: RANDOM_POTION
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPotionSplash(PotionSplashEvent event) {
         ThrownPotion thrownPotion = (ThrownPotion) event.getEntity();
         if (!usageHandler.getMagicPotions().contains(thrownPotion)) return;

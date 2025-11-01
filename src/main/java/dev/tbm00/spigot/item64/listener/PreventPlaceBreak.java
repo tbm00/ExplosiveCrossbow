@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,7 +29,7 @@ public class PreventPlaceBreak implements Listener {
         inactiveWorlds = configHandler.getInactiveWorlds();
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockPlace(BlockPlaceEvent event) {
         // check if block is in blockEvent.preventBlockPlacing config
         if (configHandler.isPreventedPlacingEnabled()) {
@@ -48,7 +49,7 @@ public class PreventPlaceBreak implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockBreak(BlockBreakEvent event) {
         // check if block is in blockEvent.preventBlockBreaking config
         if (configHandler.isPreventedBreakingEnabled()) {
